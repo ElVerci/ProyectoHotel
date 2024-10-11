@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="panelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codigo.Controlador">
+   <children>
+      <TabPane fx:id="principal" prefHeight="501.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Reservar">
+            <content>
+              <AnchorPane id="panelReservar" fx:id="panelReservar" minHeight="0.0" minWidth="0.0" prefHeight="466.0" prefWidth="600.0" stylesheets="@hotel.css">
+                     <children>
+                        <TextField fx:id="tDNI" layoutX="100.0" layoutY="62.0" onInputMethodTextChanged="#comprobarDNICliente" onKeyPressed="#comprobarDNICliente" onKeyReleased="#comprobarDNICliente" onKeyTyped="#comprobarDNICliente" />
+                        <Label layoutX="39.0" layoutY="66.0" text="DNI:" />
+                        <TextField fx:id="tNombre" layoutX="100.0" layoutY="107.0" />
+                        <Label layoutX="31.0" layoutY="111.0" text="Nombre:" />
+                        <ComboBox fx:id="cBTipoHabitacion" layoutX="389.0" layoutY="62.0" onAction="#mostrarHabitacionesDisponibles" prefWidth="150.0" />
+                        <Label layoutX="273.0" layoutY="66.0" text="TIPO HABITACIÓN" />
+                        <Label layoutX="87.0" layoutY="24.0" text="INFORMACIÓN CLIENTE" />
+                        <TextField fx:id="tApellidos" layoutX="100.0" layoutY="159.0" />
+                        <Label layoutX="29.0" layoutY="163.0" text="Apellidos:" />
+                        <Label layoutX="389.0" layoutY="24.0" text="INFORMACIÓN RESERVA" />
+                        <DatePicker fx:id="dPFechaEntrada" editable="false" layoutX="382.0" layoutY="107.0" onAction="#mostrarHabitacionesDisponibles" />
+                        <DatePicker fx:id="dPFechaSalida" editable="false" layoutX="382.0" layoutY="159.0" onAction="#mostrarHabitacionesDisponibles" />
+                        <Label layoutX="273.0" layoutY="111.0" text="FECHA ENTRADA" />
+                        <Label layoutX="276.0" layoutY="163.0" text="FECHA SALIDA" />
+                        <ListView fx:id="listaHabitaciones" layoutX="51.0" layoutY="211.0" onInputMethodTextChanged="#mostrarPrecio" onKeyTyped="#mostrarPrecio" onMouseClicked="#mostrarPrecio" prefHeight="190.0" prefWidth="510.0" />
+                        <Button fx:id="bReservar" layoutX="100.0" layoutY="417.0" mnemonicParsing="false" onAction="#crearReserva" prefHeight="26.0" prefWidth="222.0" text="Reservar" />
+                        <Label layoutX="368.0" layoutY="422.0" text="Precio Total:" />
+                        <TextField fx:id="tPrecioTotal" editable="false" layoutX="452.0" layoutY="417.0" onAction="#mostrarPrecio" prefHeight="26.0" prefWidth="86.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#mostrarReservas" text="Consultar Reservas">
+            <content>
+              <AnchorPane id="panelReservas" fx:id="panelConsultar" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" stylesheets="@hotel.css">
+                     <children>
+                        <ListView fx:id="listaReservas" layoutX="41.0" layoutY="96.0" prefHeight="300.0" prefWidth="517.0" />
+                        <Button fx:id="bBorrarReserva" layoutX="232.0" layoutY="415.0" mnemonicParsing="false" onAction="#borrarReserva" prefHeight="26.0" prefWidth="135.0" text="Cancelar Reserva" />
+                        <ComboBox fx:id="cbNumHabitaciones" layoutX="400.0" layoutY="51.0" onAction="#mostrarReservas" prefWidth="150.0" />
+                        <TextField fx:id="tIdReserva" layoutX="53.0" layoutY="51.0" onKeyPressed="#mostrarReservas" onKeyReleased="#mostrarReservas" onKeyTyped="#mostrarReservas" />
+                        <TextField fx:id="tBuscDni" layoutX="225.0" layoutY="51.0" onKeyPressed="#mostrarReservas" onKeyReleased="#mostrarReservas" onKeyTyped="#mostrarReservas" />
+                        <Label layoutX="96.0" layoutY="22.0" text="ID RESERVA" />
+                        <Label layoutX="266.0" layoutY="22.0" text="DNI CLIENTE" />
+                        <Label layoutX="441.0" layoutY="22.0" text="HABITACIÓN" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

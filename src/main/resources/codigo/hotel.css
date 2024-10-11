@@ -1,0 +1,13 @@
+#panelReservar{
+    -fx-background-image: url("hotelop1.jpg");
+}
+
+#panelReservas{
+    -fx-background-image: url("hotelop1.jpg");
+}
+
+AnchorPane,TabPane{
+    -fx-font-weight: bold;
+}
+
+
